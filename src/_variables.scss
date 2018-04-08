@@ -1,0 +1,97 @@
+//-------------------------------------
+// @VARIABLES
+//-------------------------------------
+
+/// Base size for typography
+/// @group modular scale
+/// @type {number}
+$base-size: 1rem;
+
+/// Base ratio to calculate font scale
+/// @group modular scale
+/// @type {number}
+$base-size-ratio: (16 / 15); // Minor Second
+
+/// Base ratio to calculate `line-height` and spacing scale
+/// @group modular scale
+/// @type {number}
+$base-height-ratio: 1.5;
+
+/// Base height for `line-height` and spacing
+/// @group modular scale
+/// @type {number}
+$base-height: $base-size * $base-height-ratio;
+
+/// Colours
+/// @group colours
+/// @type {map}
+$colors: (
+  cocoa: #332e26,
+  cherry: #e3455f,
+  grape: #7048e8,
+  mint: #20c997,
+  papaya: #ffa94d,
+  dark: #212529,
+  gray: #ced4da,
+  light: #f8f9fa
+);
+
+/// Font Family Sans
+/// @group typography
+/// @type {list}
+$font-family-sans: 'Source Sans Pro', 'Helvetica Neue', sans-serif;
+/// Font Family Serif
+/// @group typography
+/// @type {list}
+$font-family-serif: Georgia, 'Times New Roman', Times, serif;
+/// Font Family Mono
+/// @group typography
+/// @type {list}
+$font-family-mono: Inconsolata, 'Courier New', Courier, monospace;
+/// Font Family for headings
+/// @group typography
+/// @require {variable} $font-family-sans
+/// @type {list}
+$font-family-heading: Nunito, $font-family-sans;
+/// Font Family for paragraphs
+/// @require {variable} $font-family-sans
+/// @group typography
+/// @type {list}
+$font-family-paragraph: $font-family-sans;
+
+/// Breakpoints
+/// @group responsive
+/// @type {map}
+$breakpoints: (
+  small: 320px,
+  medium: 768px,
+  large: 1024px,
+  wide: 1440px
+);
+
+/// Transitions
+/// @group transitions
+/// @type {map}
+$transitions: (
+  xshort: all ease 0.15s,
+  short: all ease 0.25s,
+  medium: all ease 0.4s,
+  long: all ease 0.7s,
+  xlong: all ease 1s
+);
+
+/// Box Shadow Size
+/// @group decoration
+/// @type {list}
+$shadow-size: 0 3px 4px 0;
+/// Box Shadow Size Large
+/// @group decoration
+/// @type {list}
+$shadow-size-large: 0 12px 34px 0;
+
+/// Relative or absolute URL where all assets are served from
+/// @group assets
+/// @type {string}
+/// @example scss - When using a CDN
+///   $base-url: 'http://cdn.example.com/assets/';
+$base-url: '/static/media/';
