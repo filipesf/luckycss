@@ -1,0 +1,20 @@
+/* ==========================================================================
+   TRANSITIONS
+   ========================================================================== */
+
+/// @group Transitions
+/// @type map
+$transitions: (
+  default: all 250ms ease-in-out,
+  classroom: all 200ms ease,
+  faq: all 300ms ease-in-out,
+);
+
+
+
+/// @group Transitions
+/// @require {variable} $transitions
+/// @param {string} $name
+@mixin transition($name) {
+  transition: map-get($transitions, $name);
+}

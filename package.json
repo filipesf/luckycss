@@ -19,7 +19,7 @@
     "watch": "^1.0.2"
   },
   "scripts": {
-    "clean": "rm -rf ./dist/*",
+    "clean": "rm -rf ./dist/index.html",
     "start": "npm run clean -s; run-p build watch serve",
     "build": "sassdoc src -t luckycss -d dist",
     "watch": "watch 'npm run build' src",

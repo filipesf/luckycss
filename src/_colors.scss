@@ -1,0 +1,44 @@
+/* ==========================================================================
+   COLORS
+   ========================================================================== */
+
+/// @group Colors
+/// @type map
+$colors: (
+  brand: (
+    base: #ff0095,
+    dark: #e60086,
+  ),
+
+  gray: (
+    lighter: #f7f7f7,
+    light: #adadad,
+    mid: #595959,
+    dark: #333333,
+    darker: #262626,
+  ),
+
+  util: (
+    success: #50e3bb,
+    error: #ff5353,
+  ),
+);
+
+/// @group Colors
+/// @require {variable} $colors
+/// @param {string} $name
+/// @param {number} $shade
+/// @return {color}
+/// @example scss
+/// // hero.scss
+/// .c-hero {
+///  background-color: color(berry, 700);
+/// }
+///
+/// // hero.css
+/// .c-hero {
+///  background-color: #cc163e;
+/// }
+@function color($name, $shade: base) {
+  @return map-get(map-get($colors, $name), $shade);
+}

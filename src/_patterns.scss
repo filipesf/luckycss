@@ -1,0 +1,137 @@
+/* ==========================================================================
+   UI PATTERNS
+   ========================================================================== */
+
+/// @group Patterns
+/// @require {mixin} type-scale
+/// @require {mixin} transition
+/// @require {function} size
+@mixin button($size: default) {
+  @include type-scale(0);
+  @include transition(default);
+  font-family: $font-family-primary;
+  border: 0;
+  border-radius: rem(3);
+  font-weight: 700;
+  cursor: pointer;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+
+  @if $size == large {
+    padding: size(2) size(4);
+  } @else if $size == medium {
+    padding: size(1.5) size(3);
+  } @else {
+    padding: size(1) size(2);
+  }
+
+  @include on-event(self) {
+    text-decoration: none;
+  }
+}
+
+/// @group Patterns
+@mixin card($width: rem(248), $height: rem(330)) {
+  @include rectangle($width, $height);
+  display: flex;
+  flex-direction: column;
+  align-content: flex-start;
+  padding: size(3);
+  margin: 0 size(1/2);
+  border-radius: rem(3);
+}
+
+/// @group Patterns
+@mixin news-message {
+  @include type-scale(-1);
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-family: $font-family-secondary;
+  text-align: center;
+  color: color(util, success);
+
+
+
+  .c-icon {
+    margin-bottom: size(2);
+  }
+
+
+
+  @include media-query(medium) {
+    flex-direction: row;
+    text-align: left;
+
+
+
+    .c-icon {
+      margin-right: size(1);
+      margin-bottom: 0;
+    }
+  }
+
+
+
+  &.is-shown {
+    display: flex;
+  }
+}
+
+/// @group Patterns
+/// @require {function} rem
+/// @param $width [rem(1280)]
+/// @param $margin [true]
+@mixin wrapper($width: rem(1280), $margin: true) {
+  width: 100%;
+  max-width: $width;
+
+  @if $margin {
+    margin: 0 auto;
+  }
+}
+
+/// @group Patterns
+/// @require {function} size
+/// @require {mixin} animation
+/// @require {mixin} media-query
+@mixin section {
+  @include animation(intro, 5);
+  padding: size(6) size(3);
+
+  @include media-query(813) {
+    padding: size(12);
+  }
+
+  @include media-query(1025) {
+    min-height: 100vh;
+  }
+
+  @include media-query(1367) {
+    min-height: auto;
+  }
+}
+
+/// @group Patterns
+/// @require {function} rem
+/// @require {function} size
+/// @require {mixin} rectangle
+/// @require {mixin} media-query
+/// @param {color} $color [black]
+/// @output Draws a dash bellow current element
+@mixin dash($color: black) {
+  &:after {
+    @include rectangle(rem(50), rem(4));
+    content: '';
+    display: block;
+    margin: size(3) 0;
+    background-color: $color;
+
+    @include media-query(813) {
+      @include rectangle(rem(100), rem(8));
+      margin: size(6) 0;
+    }
+  }
+}
